@@ -7,17 +7,46 @@
             --affirmation-bg: #FFE9A0; /* Soft Yellow Accent */
             --link-color: #378C76; /* Darker Teal for links */
             --form-bg: #FFFFFF; /* White for form container */
+            --primary: #0b5ed7;
+            --muted: #6c757d;
+            --bg: #ffffff;
+            --focus: #ffb703;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* Accessibility: visible skip-link on focus */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            left: 1rem;
+            top: 1rem;
+            width: auto;
+            height: auto;
+            padding: .5rem .75rem;
+            background: var(--bg);
+            color: var(--primary);
+            z-index: 2000;
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
 
         /* Navigation Styling */
         .navbar-custom {
             background-color: #ffffff; /* White navbar for clean contrast */
+            border-bottom: 1px solid rgba(0,0,0,0.04);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
@@ -29,6 +58,56 @@
 
         .nav-link-custom:hover {
             color: var(--primary-color) !important;
+        }
+
+        /* Hide native checkbox input but keep it accessible to keyboard */
+        .nav-toggle { position: absolute; left: -9999px; }
+
+        /* Default styles for nav on large screens (desktop / laptop) */
+        .navbar-custom {
+            background: #fff;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        /* Navbar-brand centered handled via markup (w-100 text-center) */
+
+        /* Desktop / tablet: show nav as horizontal row (Bootstrap helps) */
+        .navbar-nav-responsive {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        /* Hide the css-only toggle control by default on larger screens */
+        .nav-toggle-label { display: none; }
+
+        /* Hamburger visuals */
+        .nav-toggle-label .hamburger,
+        .hamburger,
+        .hamburger::before,
+        .hamburger::after {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            position: relative;
+        }
+        .hamburger::before,
+        .hamburger::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 24px;
+        }
+        .hamburger::before { top: -7px; }
+        .hamburger::after { top: 7px; }
+
+        /* Focus outline override for accessible focus */
+        a:focus, button:focus, .nav-toggle-label:focus {
+            outline: 3px solid var(--focus);
+            outline-offset: 3px;
         }
 
         /* Hero Section Styling (Jumbotron Replacement) */
@@ -135,121 +214,170 @@
             color: var(--primary-color);
         }
 
-        /* Basic reset for the CSS-only toggle */
-.nav-toggle {
-	/* visually hidden but operable */
-	position: absolute;
-	left: -9999px;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-	white-space: nowrap;
-}
+        /* Basic variables and typography */
+        :root {
+            --primary: #0b5ed7;
+            --text: #0b2b34;
+            --muted: #6c757d;
+            --bg: #ffffff;
+            --focus: #ffb703;
+        }
 
-/* Hamburger button (hidden on larger screens) */
-.nav-toggle-label {
-	display: none; /* shown only on small screens below */
-	align-items: center;
-	justify-content: center;
-	width: 44px;
-	height: 44px;
-	border-radius: 8px;
-	border: 1px solid rgba(0,0,0,0.06);
-	background: transparent;
-	cursor: pointer;
-	margin-left: auto;
-}
+        /* Accessibility: visible skip-link on focus */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            left: 1rem;
+            top: 1rem;
+            width: auto;
+            height: auto;
+            padding: .5rem .75rem;
+            background: var(--bg);
+            color: var(--primary);
+            z-index: 2000;
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
 
-/* Hamburger bars */
-.hamburger {
-	position: relative;
-	display: inline-block;
-	width: 20px;
-	height: 2px;
-	background: var(--primary, #0b5ed7);
-	border-radius: 2px;
-	transition: transform .2s ease;
-}
-.hamburger::before,
-.hamburger::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	width: 20px;
-	height: 2px;
-	background: var(--primary, #0b5ed7);
-	border-radius: 2px;
-	transition: transform .2s ease, top .2s ease, opacity .2s ease;
-}
-.hamburger::before { top: -7px; }
-.hamburger::after  { top: 7px; }
+        /* Basic page spacing */
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+            background: #f8f9fb;
+            font-size: 18px;
+            line-height: 1.5;
+        }
 
-/* Responsive collapse behaviour (mobile/tablet) */
-@media (max-width: 991px) {
-	/* show the hamburger */
-	.nav-toggle-label { display: flex; }
+        /* Hero and cards remain flexible */
+        .hero-section { padding: 2rem; border-radius: 8px; background: #fff; }
+        .card-custom { border-radius: 8px; }
 
-	/* layout the navbar list as a hidden vertical panel by default */
-	.navbar-nav-responsive {
-		flex-direction: column;
-		gap: .5rem;
-		width: 100%;
-		padding: 0 1rem;
-		max-height: 0;
-		overflow: hidden;
-		transition: max-height .28s ease, padding .2s ease;
-		background: var(--card, #fff);
-		border-radius: 8px;
-		box-shadow: 0 6px 18px rgba(11,38,56,0.06);
-		margin-top: .5rem;
-	}
+        /* Navbar layout */
+        /* Hide native checkbox input but keep it accessible to keyboard */
+        .nav-toggle { position: absolute; left: -9999px; }
 
-	/* ensure links span full width and are stacked */
-	.navbar-nav-responsive .nav-item { width: 100%; }
-	.navbar-nav-responsive .nav-link { display: block; padding: .5rem 0; }
+        /* Default styles for nav on large screens (desktop / laptop) */
+        .navbar-custom {
+            background: #fff;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
 
-	/* when checkbox is checked, expand the menu */
-	#nav-toggle:checked + .nav-toggle-label + .navbar-nav-responsive {
-		max-height: 480px; /* enough to fit items; adjust if needed */
-		padding: .75rem 1rem;
-	}
+        /* Navbar-brand centered handled via markup (w-100 text-center) */
 
-	/* animate hamburger -> X when checked */
-	#nav-toggle:checked + .nav-toggle-label .hamburger {
-		transform: rotate(45deg);
-	}
-	#nav-toggle:checked + .nav-toggle-label .hamburger::before {
-		top: 0;
-		transform: rotate(90deg);
-	}
-	#nav-toggle:checked + .nav-toggle-label .hamburger::after {
-		opacity: 0;
-	}
-}
+        /* Desktop / tablet: show nav as horizontal row (Bootstrap helps) */
+        .navbar-nav-responsive {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: .5rem;
+        }
 
-/* Desktop / large screens: keep original horizontal nav behaviour */
-@media (min-width: 992px) {
-	.navbar-nav-responsive {
-		flex-direction: row;
-		max-height: none;
-		overflow: visible;
-		padding: 0;
-		background: transparent;
-		box-shadow: none;
-		margin-top: 0;
-	}
-	.nav-toggle-label { display: none; }
-}
+        /* Hide the css-only toggle control by default on larger screens */
+        .nav-toggle-label { display: none; }
 
-/* Focus styles for accessibility */
-.nav-toggle-label:focus, .nav-toggle-label:focus-visible {
-	outline: 3px solid var(--focus, #ffb703);
-	outline-offset: 2px;
-}
+        /* Hamburger visuals */
+        .nav-toggle-label .hamburger,
+        .hamburger,
+        .hamburger::before,
+        .hamburger::after {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            position: relative;
+        }
+        .hamburger::before,
+        .hamburger::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 24px;
+        }
+        .hamburger::before { top: -7px; }
+        .hamburger::after { top: 7px; }
 
-/* Ensure nav links have visible focus */
-.navbar-nav-responsive .nav-link:focus, .navbar-nav-responsive .nav-link:focus-visible {
-	outline: 3px solid var(--focus, #ffb703);
-	outline-offset: 2px;
-}
+        /* Focus outline override for accessible focus */
+        a:focus, button:focus, .nav-toggle-label:focus {
+            outline: 3px solid var(--focus);
+            outline-offset: 3px;
+        }
+
+        /* Small screens: collapse nav into hamburger menu */
+        @media (max-width: 991.98px) {
+            /* Show hamburger, align it to right */
+            .nav-toggle-label {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: .5rem;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                position: absolute;
+                right: 1rem;
+                top: 0.9rem;
+                padding: .5rem;
+            }
+
+            /* Make nav hidden by default and visible when checkbox is checked */
+            .navbar-nav-responsive {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: .75rem;
+                gap: 0;
+                padding: 0.5rem 0;
+                border-top: 1px solid rgba(0,0,0,0.04);
+                background: #fff;
+            }
+
+            /* When the toggle is checked show the menu */
+            #nav-toggle:checked ~ .navbar-nav-responsive {
+                display: flex;
+            }
+
+            /* Ensure nav links are full width stacked and tappable */
+            .navbar-nav-responsive .nav-item { width: 100%; }
+            .navbar-nav-responsive .nav-link { display: block; padding: .75rem 1rem; width: 100%; }
+
+            /* Make brand stay above the collapsed nav */
+            .navbar-brand { z-index: 2; padding-top: .75rem; padding-bottom: .75rem; }
+        }
+
+        /* Very small phones: slightly smaller base font and stacked hero */
+        @media (max-width: 575.98px) {
+            body { font-size: 16px; }
+            .hero-section { padding: 1.25rem; }
+            .display-4 { font-size: 1.5rem; }
+        }
+
+        /* Simple footer spacing and stacking (Bootstrap handles columns) */
+        footer { background: #062437; color: #f5fbff; }
+        footer .text-secondary { color: #cfe8ff; }
+        footer a { color: #e6f2ff; text-decoration: underline; }
+
+        /* Resource buttons simple style */
+        .btn-resource {
+            display: inline-block;
+            width: 100%;
+            background: #fff;
+            color: var(--primary);
+            border: 1px solid rgba(11,94,215,0.08);
+            padding: .6rem .8rem;
+            border-radius: .5rem;
+            text-align: center;
+        }
+
+        /* Utility for consistent spacing on form card */
+        .form-card { background: #fff; padding: 1.5rem; border-radius: .75rem; box-shadow: 0 6px 18px rgba(11,38,56,0.06); }
+
+        /* Ensure focus-visible for keyboard users */
+        :focus:not(:focus-visible) { outline: none; }
+        :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }

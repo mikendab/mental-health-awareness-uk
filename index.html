@@ -10,21 +10,24 @@
     <!-- Inline <style> removed — styles should live in styles.css -->
 </head>
 <body>
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <!-- Header and Navigation -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top" role="navigation" aria-label="Main navigation">
             <div class="container-fluid container-lg">
-                <!-- Brand no longer absolute; full width and centered so nav moves to next line -->
+                <!-- Brand centered full width -->
                 <a class="navbar-brand text-primary fw-bold w-100 text-center" href="#home">Mental Health Awareness UK</a>
 
-                <!-- Added: CSS-only toggle (checkbox + label). Works without JS. -->
+                <!-- CSS-only toggle (checkbox + label). Works without JS. -->
                 <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true">
                 <label for="nav-toggle" class="nav-toggle-label" role="button" aria-label="Toggle navigation" tabindex="0">
                     <span class="hamburger" aria-hidden="true"></span>
                 </label>
 
-                <!-- Make the nav list full width so it wraps to the next line and align to right -->
-                <ul class="navbar-nav navbar-nav-responsive w-100 ms-auto d-flex flex-row gap-2 justify-content-end mt-2">
+                <!-- Nav links -->
+                <ul class="navbar-nav navbar-nav-responsive w-100 ms-auto d-flex flex-row gap-2 justify-content-end mt-2" id="main-nav">
                     <li class="nav-item">
                         <a class="nav-link nav-link-custom" href="#about">About Us</a>
                     </li>
@@ -42,7 +45,7 @@
         </nav>
     </header>
 
-    <main class="container-lg my-5">
+    <main id="main-content" class="container-lg my-5" role="main">
         <!-- Hero Section (Positive Messaging/Jumbotron) -->
         <section id="home" class="hero-section shadow-lg">
             <div class="container-fluid py-5">
@@ -119,7 +122,6 @@
         <!-- Stress Management Tips Section (Information Cards) -->
         <section id="manage" class="py-5">
             <h2 class="text-center mb-5 text-primary fw-bold">Beginner-Friendly Stress Management Techniques</h2>
-            <!-- Grid setup: 1 col on mobile, 2 on medium/large -->
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <!-- Card 4: Breathing -->
                 <div class="col">
@@ -127,9 +129,7 @@
                         <div class="card-header card-header-custom text-center py-3">Mindful Breathing</div>
                         <div class="card-body">
                             <h5 class="card-title text-primary">Simple Step:</h5>
-                            <p class="card-text">Inhale slowly through your nose for a count of 4, hold your breath for 4, then exhale gently through
-                    </div>
-                </div>
+                           
 
                 <!-- Card 5: Movement -->
                 <div class="col">
