@@ -148,6 +148,58 @@
                 <small class="d-block mt-3 text-muted">— A Note of Encouragement</small>
             </div>
         </section>
+         <!-- Book Consultant Form Section (New) -->
+        <section id="consultant" class="py-5">
+            <h2 class="text-center mb-5 text-primary fw-bold">Request a Mental Health Consultation</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="form-card">
+                        <p class="text-center mb-4">Please fill out this form to request an initial consultation. Our team will contact you shortly to confirm a time.</p>
+                        <!-- Form uses action="#thank-you" to navigate to the thank you section on submit, as pure HTML cannot process the form -->
+                        <form action="#thank-you" method="GET"> 
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control rounded-pill" id="fullName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailAddress" class="form-label">Email Address</label>
+                                <input type="email" class="form-control rounded-pill" id="emailAddress" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactMethod" class="form-label">Preferred Contact Method</label>
+                                <select class="form-select rounded-pill" id="contactMethod" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>Email</option>
+                                    <option>Phone Call</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="concern" class="form-label">Briefly Describe Your Main Concern</label>
+                                <textarea class="form-control rounded-lg" id="concern" rows="4" required></textarea>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" value="" id="privacyCheck" required>
+                                <label class="form-check-label small" for="privacyCheck">
+                                    I agree to the privacy policy regarding the use of my contact information.
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold">Submit Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thank You Page/Section (New) -->
+        <section id="thank-you" class="thank-you-section shadow-lg">
+            <h2 class="display-5 fw-bold text-dark">Thank You For Taking This Step!</h2>
+            <p class="lead mt-4 text-dark">
+                Your consultation request has been successfully received. A member of our team will reach out to you via your preferred contact method within 1-2 business days to schedule your appointment.
+            </p>
+            <p class="text-muted small">
+                Note: Since this is a static site (no JavaScript or server), clicking 'Submit' redirects you to this confirmation section.
+            </p>
+        </section>
   <!-- Bootstrap 5 JS Bundle (required for navbar-toggler functionality, though not a core JS function) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
 </body>
