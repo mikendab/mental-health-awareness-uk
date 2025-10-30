@@ -26,8 +26,8 @@
                     <span class="hamburger" aria-hidden="true"></span>
                 </label>
 
-                <!-- Nav links -->
-                <ul class="navbar-nav navbar-nav-responsive w-100 ms-auto d-flex flex-row gap-2 justify-content-end mt-2" id="main-nav">
+                <!-- Nav links: stack on small screens, inline on lg+ -->
+                <ul class="navbar-nav navbar-nav-responsive w-100 ms-auto d-flex flex-column flex-lg-row gap-2 justify-content-lg-end align-items-lg-center mt-2" id="main-nav">
                     <li class="nav-item">
                         <a class="nav-link nav-link-custom" href="#about">About Us</a>
                     </li>
@@ -129,7 +129,10 @@
                         <div class="card-header card-header-custom text-center py-3">Mindful Breathing</div>
                         <div class="card-body">
                             <h5 class="card-title text-primary">Simple Step:</h5>
-                           
+                            <p class="card-text">Inhale slowly for 4 seconds, hold for 4, and exhale slowly for 6 seconds. Repeat 5–10 times to help calm your nervous system.</p>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Card 5: Movement -->
                 <div class="col">
@@ -269,5 +272,30 @@
     </footer>
 
     <!-- Removed incomplete/broken script tag. Add any required scripts via external files if needed. -->
+
+    <!-- Developer note: Responsive test checklist (non-rendering) -->
+    <!--
+      RESPONSIVE CHECKLIST (run on Phone, Tablet, Laptop / Chrome DevTools Device Toolbar)
+      - Hero / Jumbotron: text readable, no overflow; image (if present) uses .img-fluid and scales down.
+      - Navbar:
+          * On small screens the nav links should stack vertically and remain tappable (check touch target size).
+          * On large screens links should appear in one row to the right of the centered brand.
+          * Confirm "Skip to content" works and is visible when focused.
+      - Forms:
+          * Inputs and buttons expand to container width on small screens (use w-100 as needed).
+          * Rounded controls don't overflow on narrow viewports.
+      - Cards/grid:
+          * .row-cols-1 on phone, .row-cols-md-2 on tablet, .row-cols-lg-3 on laptop — verify column counts at breakpoints.
+      - Footer:
+          * Content stacks vertically on small screens; two-column layout on larger screens.
+      - Accessibility:
+          * Keyboard navigation via Tab reaches nav links, form fields, and primary CTAs.
+      - Performance:
+          * Images use loading="lazy" and appropriate srcset/webp if available.
+      QUICK CSS HINTS (styles.css):
+      - Add .nav-toggle display rules and .hamburger styles for mobile if you want a visible toggle.
+      - Ensure .nav-link-custom has adequate padding/touch-target on small screens (min-height ~44px).
+      - Confirm color contrast of .nav-link-custom and footer text meets WCAG AA.
+    -->
 </body>
 </html>
