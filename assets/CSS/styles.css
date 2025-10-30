@@ -1,0 +1,10 @@
+/* Custom Variables for Calming Palette */
+        :root {
+            --primary-color: #6ABEA7; /* Soft Teal */
+            --secondary-color: #C6D7AF; /* Soft Sage Green */
+            --background-color: #F8F9FA; /* Off-White */
+            --text-color: #212529; /* Dark Gray for Contrast */
+            --affirmation-bg: #FFE9A0; /* Soft Yellow Accent */
+            --link-color: #378C76; /* Darker Teal for links */
+            --form-bg: #FFFFFF; /* White for form container */
+        }
