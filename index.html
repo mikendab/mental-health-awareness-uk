@@ -6,124 +6,43 @@
     <title>Mental Health Awareness UK</title>
     <meta name="description" content="Beginner-friendly, accessible mental health information, practical stress-management techniques, and an easy way to request a consultation.">
     <link rel="stylesheet" href="styles.css">
-     <!-- Link to Bootstrap 5 CSS CDN for structure and utilities -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Custom CSS for Calming Aesthetic and High Contrast -->
-
-    <!-- Inserted: Tightened color palette and typography for improved contrast & clarity -->
-    <style>
-        :root{
-            --bg:#f4f7f9;
-            --card:#ffffff;
-            --primary:#0b5ed7; /* high-contrast primary */
-            --text:#0b2b34;
-            --muted:#5b6b73;
-            --focus:#ffb703;
-        }
-
-        /* Base typography */
-        html { font-size: 100%; } /* fallback */
-        body {
-            background: linear-gradient(180deg,var(--bg) 0%, #ffffff 100%);
-            color: var(--text);
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            font-size: 18px; /* more readable base */
-            line-height: 1.6;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-        }
-
-        h1,h2,h3 { color: var(--primary); margin-top:0; letter-spacing:-0.3px; }
-        h1.display-4 { font-weight:700; }
-
-        /* Cards and surfaces */
-        .card, .card-custom { background: var(--card); border-radius: 8px; color: var(--text); box-shadow: 0 6px 18px rgba(11,38,56,0.06); }
-        .hero-section { background: linear-gradient(90deg, rgba(11,94,215,0.05), rgba(11,94,215,0.02)); border-radius:10px; padding:32px; }
-
-        /* Nav / footer adjustments for contrast and readability */
-        .navbar-custom { background: var(--card); border-bottom: 1px solid rgba(11,94,215,0.06); }
-        .navbar-brand { color: var(--primary) !important; font-weight:700; }
-        .nav-link-custom { color: var(--text) !important; font-weight:600; padding:0.5rem 0.75rem; }
-        .nav-link-custom:hover, .nav-link-custom:focus { color: var(--primary) !important; text-decoration: underline; }
-
-        footer { background: #062437; color:#f5fbff; }
-        footer a { color: #e6f2ff; text-decoration: underline; }
-        footer .text-secondary { color: #cfe8ff; }
-
-        /* Buttons */
-        .btn-primary { background-color: var(--primary); border-color: var(--primary); }
-        .btn-outline-light { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.95); }
-
-        /* Visible focus for keyboard users */
-        :focus {
-            outline: 3px solid var(--focus);
-            outline-offset: 2px;
-        }
-
-        .skip-link {
-            position: absolute;
-            left: -999px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-        .skip-link:focus {
-            left: 1rem;
-            top: 1rem;
-            width: auto;
-            height: auto;
-            padding: 0.5rem 0.75rem;
-            background: #fff;
-            color: var(--primary);
-            z-index: 1050;
-            border-radius: 6px;
-            box-shadow: 0 6px 18px rgba(11,38,56,0.08);
-        }
-
-        /* Small screens: slightly reduce base font-size */
-        @media (max-width:575px){
-            body { font-size: 16px; }
-            .btn-lg { padding: .65rem 1.25rem; }
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Inline <style> removed — styles should live in styles.css -->
 </head>
 <body>
-    <!-- Added: accessible skip link -->
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-      <!-- Header and Navigation -->
+    <!-- Header and Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top" role="navigation" aria-label="Primary navigation">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top" role="navigation" aria-label="Main navigation">
             <div class="container-fluid container-lg">
-                <a class="navbar-brand text-primary fw-bold" href="#home" aria-current="page">Mental Health Awareness UK</a>
-                <!-- Mobile Menu Toggle -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Navigation Links -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="#about">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="#recognize">Guide</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="#consultant">Book Consultant</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-custom" href="#resources">Resources</a>
-                        </li>
-                    </ul>
-                    <!-- Added: prominent CTA for booking (visible on larger screens) -->
-                    <a class="btn btn-primary ms-3 d-none d-lg-inline-block" href="#consultant">Book Appointment</a>
-                </div>
+                <!-- Brand no longer absolute; full width and centered so nav moves to next line -->
+                <a class="navbar-brand text-primary fw-bold w-100 text-center" href="#home">Mental Health Awareness UK</a>
+
+                <!-- Added: CSS-only toggle (checkbox + label). Works without JS. -->
+                <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true">
+                <label for="nav-toggle" class="nav-toggle-label" role="button" aria-label="Toggle navigation" tabindex="0">
+                    <span class="hamburger" aria-hidden="true"></span>
+                </label>
+
+                <!-- Make the nav list full width so it wraps to the next line and align to right -->
+                <ul class="navbar-nav navbar-nav-responsive w-100 ms-auto d-flex flex-row gap-2 justify-content-end mt-2">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#recognize">Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#consultant">Book Consultant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#resources">Resources</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
-       <main id="main-content" class="container-lg my-5">
+
+    <main class="container-lg my-5">
         <!-- Hero Section (Positive Messaging/Jumbotron) -->
         <section id="home" class="hero-section shadow-lg">
             <div class="container-fluid py-5">
@@ -132,12 +51,13 @@
                 <a href="#about" class="btn btn-outline-light btn-lg mt-3 fw-bold">Learn More About Us</a>
             </div>
         </section>
-             <!-- About Us Section (New) -->
+
+        <!-- About Us Section (New) -->
         <section id="about" class="py-5">
             <h2 class="text-center mb-5 text-primary fw-bold">Our Mission: Compassion and Clarity</h2>
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <p class="lead text-center mb-4">Mindful Steps was founded on the principle that mental wellness information should be easily accessible, non-judgmental, and practical. We aim to destigmatize the conversation around mental health by providing clear, evidence-based guides.</p>
+                    <p class="lead text-center mb-4">Mental Health Awareness UK was founded on the principle that mental wellness information should be easily accessible, non-judgmental, and practical. We aim to destigmatize the conversation around mental health by providing clear, evidence-based guides.</p>
                     <div class="card p-4 shadow-sm border-0">
                         <h3 class="text-secondary mb-3">What We Believe</h3>
                         <ul class="list-unstyled">
@@ -152,7 +72,8 @@
         
         <!-- Divider -->
         <hr class="my-5 text-secondary">
-<!-- Recognize Common Issues Section (Guide) -->
+
+        <!-- Recognize Common Issues Section (Guide) -->
         <section id="recognize" class="py-5">
             <h2 class="text-center mb-5 text-primary fw-bold">Recognizing Common Mental Health Issues (The Guide)</h2>
             <!-- Grid setup: 1 col on mobile, 2 on medium, 3 on large -->
@@ -206,7 +127,92 @@
                         <div class="card-header card-header-custom text-center py-3">Mindful Breathing</div>
                         <div class="card-body">
                             <h5 class="card-title text-primary">Simple Step:</h5>
-                            <p class="card-text">Inhale slowly through your nose for a count of 4
+                            <p class="card-text">Inhale slowly through your nose for a count of 4, hold your breath for 4, then exhale gently through
+                    </div>
+                </div>
+
+                <!-- Card 5: Movement -->
+                <div class="col">
+                    <div class="card card-custom">
+                        <div class="card-header card-header-custom text-center py-3">Gentle Movement</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Simple Step:</h5>
+                            <p class="card-text">Step away from your desk or screen for 10 minutes. A short walk or a few simple stretches can help release physical tension and reset your mind.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Positive Affirmations Section -->
+        <section id="affirmations" class="py-5">
+            <h2 class="text-center mb-4 text-primary fw-bold">Uplifting Affirmations</h2>
+            <div class="affirmation-box mx-auto text-center shadow-sm">
+                <p class="mb-0 lead">"I am resilient. I am taking steps forward, no matter how small. My feelings are valid, and I deserve kindness and care."</p>
+                <small class="d-block mt-3 text-muted">— A Note of Encouragement</small>
+            </div>
+        </section>
+
+        <!-- Book Consultant Form Section (New) -->
+        <section id="consultant" class="py-5">
+            <h2 class="text-center mb-5 text-primary fw-bold">Request a Mental Health Consultation</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="form-card">
+                        <p class="text-center mb-4">Please fill out this form to request an initial consultation. Our team will contact you shortly to confirm a time.</p>
+                        <!-- Form uses action="#thank-you" to navigate to the thank you section on submit, as pure HTML cannot process the form -->
+                        <form action="#thank-you" method="GET"> 
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control rounded-pill" id="fullName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailAddress" class="form-label">Email Address</label>
+                                <input type="email" class="form-control rounded-pill" id="emailAddress" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactMethod" class="form-label">Preferred Contact Method</label>
+                                <select class="form-select rounded-pill" id="contactMethod" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>Email</option>
+                                    <option>Phone Call</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="concern" class="form-label">Briefly Describe Your Main Concern</label>
+                                <textarea class="form-control rounded-lg" id="concern" rows="4" required></textarea>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" value="" id="privacyCheck" required>
+                                <label class="form-check-label small" for="privacyCheck">
+                                    I agree to the privacy policy regarding the use of my contact information.
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold">Submit Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thank You Page/Section (New) -->
+        <section id="thank-you" class="thank-you-section shadow-lg">
+            <h2 class="display-5 fw-bold text-dark">Thank You For Taking This Step!</h2>
+            <p class="lead mt-4 text-dark">
+                Your consultation request has been successfully received. A member of our team will reach out to you via your preferred contact method within 1-2 business days to schedule your appointment.
+            </p>
+            <p class="text-muted small">
+                Note: Since this is a static site (no JavaScript or server), clicking 'Submit' redirects you to this confirmation section.
+            </p>
+        </section>
+
+        <!-- Resource Links Section -->
+        <section id="resources" class="py-5">
+            <h2 class="text-center mb-5 text-primary fw-bold">Find Professional Support and External Resources</h2>
+            <!-- Grid setup: 1 col on mobile, 2 on small, 3 on medium -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <div class="col">
+                    <a href="https://www.who.int/health-topics/mental-health" target="_blank" class="btn btn-resource" role="button">WHO Mental Health</a>
                 </div>
                 <div class="col">
                     <a href="https://www.nami.org/" target="_blank" class="btn btn-resource" role="button">NAMI (USA)</a>
@@ -226,7 +232,8 @@
             </div>
         </section>
     </main>
-     <!-- Footer -->
+
+    <!-- Footer -->
     <footer class="text-center text-lg-start">
         <div class="container-lg p-4">
             <div class="row">
@@ -260,7 +267,7 @@
             &copy; 2025 Mindful Steps. All rights reserved.
         </div>
     </footer>
-  <!-- Bootstrap 5 JS Bundle (required for navbar-toggler functionality, though not a core JS function) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
+
+    <!-- Removed incomplete/broken script tag. Add any required scripts via external files if needed. -->
 </body>
 </html>
